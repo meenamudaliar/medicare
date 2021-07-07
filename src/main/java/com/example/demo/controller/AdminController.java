@@ -11,7 +11,7 @@ import com.example.demo.model.Admin;
 import com.example.demo.model.Users;
 import com.example.demo.repository.AdminRepository;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/v1/")
 
