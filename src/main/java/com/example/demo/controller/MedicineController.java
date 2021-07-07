@@ -29,7 +29,7 @@ import com.example.demo.repository.MedicineRepository;
 
 
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/v1/")
 
