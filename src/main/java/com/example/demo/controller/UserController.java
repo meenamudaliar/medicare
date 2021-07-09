@@ -21,11 +21,19 @@ public class UserController {
 	@Autowired
 	private UserRepository userRepository;
 	@PostMapping("/users")
-	public String createUsers(@RequestBody Users users) {
-		
+	public Users createUsers(@RequestBody Users users) throws Exception {
+		String tempusername=users.getUsername();
+		if(tempusername !=null && !"".equals(tempusername)) {
+			Users userObj=userRepository.findByUsername(tempusername);
+			if(userObj!=null) {
+				throw new Exception("user with"+tempusername+"is already exist");
+			}
+		}
+		Users userObj=null;
 		 userRepository.save(users);
-		return "Hello "+users.getUsername()+", your registration is successful!";
+		return userObj;
 	}
+	
 	
 	  @PostMapping("/login") public Users loginUsers(@RequestBody Users users)
 	  throws Exception { 
